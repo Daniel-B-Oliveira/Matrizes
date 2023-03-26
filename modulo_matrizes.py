@@ -146,24 +146,28 @@ def diagonais_primas(lista=list('None')):
 
     return diagonais_primas
 
+while True:
+    tamanho_str = input('\nTamanho matriz X,Y,Z: ')
+    try:
+        tamanho_int = int(tamanho_str)
 
-tamanho = 3
+        matriz = formar_matriz_3d(tamanho_int)
 
-matriz = formar_matriz_3d(tamanho)
+        # printar_matriz_3d(matriz)
 
-printar_matriz_3d(matriz)
+        diagonal = diagonais_matriz_3d(matriz)
 
-diagonal = diagonais_matriz_3d(matriz)
+        i = 0
 
-i = 0
-
-for cada_diag in diagonal:
-    for cada_cordenada in cada_diag:
-        i += 1
-        print(cada_cordenada, end='')
-        if i == tamanho:
+        for cada_diag in diagonal:
+            for cada_cordenada in cada_diag:
+                i += 1
+                print(cada_cordenada, end='')
+                if i == tamanho_int:
+                    print()
+                    i = 0
             print()
-            i = 0
-    print()
 
-print(f'Diagonais primas: {diagonais_primas(diagonal)}')
+        print(f'Diagonais primas: {diagonais_primas(diagonal)}')
+    except:
+        continue
