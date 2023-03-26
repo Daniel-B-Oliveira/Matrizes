@@ -15,12 +15,14 @@ def formar_matriz_3d(tamanhho=0):
     camadas_list = list()
     linhas_list = list()
     colunas_list = list()
-        
+       
+    i = 0
+    
     for c1 in range(0, tamanhho):
         for c2 in range(0, tamanhho):
             for c3 in range(0, tamanhho):
-                colunas_list.append(numeros_list[0])
-                numeros_list.remove(numeros_list[0])
+                colunas_list.append(numeros_list[i])
+                i += 1
             linhas_list.append(colunas_list[:])
             colunas_list.clear()
         camadas_list.append(linhas_list[:])
