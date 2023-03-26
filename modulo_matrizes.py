@@ -140,7 +140,6 @@ def diagonais_primas(lista=list('None')):
                 for multiplos in range(2, numeros):  # Cada antecessor do número (desconsidera 1 e ele mesmo)
                     if (numeros % multiplos == 0):  # Se for divisível, a diagonal inteira não é prima
                         contador_primo = 1
-                        break
             if contador_primo == 0 and 0 not in diagonais:
                 diagonais_primas.append(diagonais)
             contador_primo = 0
