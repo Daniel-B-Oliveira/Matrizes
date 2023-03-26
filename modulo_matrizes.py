@@ -147,9 +147,23 @@ def diagonais_primas(lista=list('None')):
     return diagonais_primas
 
 
-diagonal = diagonais_matriz_3d(formar_matriz_3d(tamanhho=4))
+tamanho = 3
+
+matriz = formar_matriz_3d(tamanho)
+
+printar_matriz_3d(matriz)
+
+diagonal = diagonais_matriz_3d(matriz)
+
+i = 0
 
 for cada_diag in diagonal:
-    print(cada_diag)
+    for cada_cordenada in cada_diag:
+        i += 1
+        print(cada_cordenada, end='')
+        if i == tamanho:
+            print()
+            i = 0
+    print()
 
 print(f'Diagonais primas: {diagonais_primas(diagonal)}')
