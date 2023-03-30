@@ -104,21 +104,6 @@ for t in range(2,4):
 
 
 
-    contador_primo = 1
-
-    for tipos in todas_as_diagonais_list:
-        for coordenadas in tipos:
-            contador_primo = True
-            for numeros in coordenadas:
-                for multiplos in range(2, numeros):
-                    if numeros % multiplos == 0 or numeros == '1' or numeros == '0':
-                        contador_primo = False
-                        break
-                    elif coodenada not in diagonais_primas:
-                        diagonais_primas.append(coordenadas)
-                        continue
-                    break
-                break
             
        
     print('Diagonais primas: ',diagonais_primas)
