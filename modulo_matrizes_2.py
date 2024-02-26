@@ -1,9 +1,10 @@
 diagonais_primas = []
-for t in range(2,4):
+
+for tamanho_matriz in range(3,4):
 
     # generator numeros
     # num = (n for n in range(1,t**3*2,2))
-    num = (n for n in range(t**3))
+    num = (n for n in range(1, tamanho_matriz**3+1))
 
     # formação matriz
 
@@ -11,9 +12,9 @@ for t in range(2,4):
     linhas_list = list()
     colunas_list = list()
         
-    for c1 in range(t):
-        for c2 in range(t):
-            for c3 in range(t):
+    for matriz in range(tamanho_matriz):
+        for linha in range(tamanho_matriz):
+            for coluna in range(tamanho_matriz):
                 colunas_list.append(next(num))
             linhas_list.append(colunas_list[:])
             colunas_list.clear()
@@ -24,13 +25,11 @@ for t in range(2,4):
 
     diagonais_iniciais = [
         (lin,col,cam)
-        for cam in range(t)
-        for lin in range(t)
-        for col in range(t)
+        for cam in range(tamanho_matriz)
+        for lin in range(tamanho_matriz)
+        for col in range(tamanho_matriz)
         if cam == 0
     ]
-
-
 
     todas_as_diagonais_list = [[],[],[],[]]
 
@@ -40,73 +39,64 @@ for t in range(2,4):
                 z = coodenada[0]
                 y = coodenada[1]
                 x = coodenada[2]
-                for k in range(t):
+                for k in range(tamanho_matriz):
                     diagonal_temporaria.append(matriz_list[z][y][x])
-                    if z == t-1:
+                    if z == tamanho_matriz-1:
                         diagonal_n.append(diagonal_temporaria)
                     if diagonal_n == todas_as_diagonais_list[0]:
                         z += 1
                         y += 1
                         x += 1
-                        if z > t-1:
+                        if z > tamanho_matriz-1:
                             z = 0
-                        if y > t-1:
+                        if y > tamanho_matriz-1:
                             y = 0
-                        if x > t-1:
+                        if x > tamanho_matriz-1:
                             x = 0
                     elif diagonal_n == todas_as_diagonais_list[1]:
                         z += 1
                         y += -1
                         x += 1
-                        if z > t-1:
+                        if z > tamanho_matriz-1:
                             z = 0
                         if y < 0:
-                            y = t-1
-                        if x > t-1:
+                            y = tamanho_matriz-1
+                        if x > tamanho_matriz-1:
                             x = 0
                     elif diagonal_n == todas_as_diagonais_list[2]:
                         z += 1
                         y += -1
                         x += -1
-                        if z > t-1:
+                        if z > tamanho_matriz-1:
                             z = 0
                         if y < 0:
-                            y = t-1
+                            y = tamanho_matriz-1
                         if x < 0:
-                            x = t-1
+                            x = tamanho_matriz-1
                     elif diagonal_n == todas_as_diagonais_list[3]:
                         z += 1
                         y += 1
                         x += -1
-                        if z > t-1:
+                        if z > tamanho_matriz-1:
                             z = 0
-                        if y > t-1:
+                        if y > tamanho_matriz-1:
                             y = 0
                         if x < 0:
-                            x = t-1
+                            x = tamanho_matriz-1
         for diagonal_n in todas_as_diagonais_list:
             diagonal_n.sort()
             for cada_valor in diagonal_n:
                 cada_valor.sort()
 
+    # print(todas_as_diagonais_list[0])
 
-    i = 0
+    exibicao = todas_as_diagonais_list[0]
 
-    for cada_diag in todas_as_diagonais_list:
-        for cada_valor in cada_diag:
-            print(cada_valor, end=' ')
-            i += 1
-            if i == 3:
-                print('')
-                i = 0
-        print()
+    for cordenada in exibicao:
+        print(cordenada)
+    print()
 
-
-
-
-            
-       
-    print('Diagonais primas: ',diagonais_primas)
+    # print('Diagonais primas: ',diagonais_primas)
 
 
 

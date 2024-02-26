@@ -44,6 +44,8 @@ def printar_matriz_3d(lista=list('None')):
         print()
 
 
+print('Diagonais:')
+
 def coordenada_diagonais_iniciais_matriz_3d(lista=list('None')):
     coodenadas_diagonais = list()
     tamanho = int(len(lista))
