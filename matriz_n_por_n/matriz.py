@@ -24,25 +24,20 @@ def is_prime(number:int = 1) -> bool:
             return False
     return True
 
-# def determinant(matrix:list = []) -> list:
-#     le = len(matrix)
-    
-#     analise = matrix
-#     analise2 = matrix
-#     for i in range(0, le-2):
-#         analise = analise[0]
-#         analise2 = analise2[1]
-    
-#     for i in range(0, len(analise)):
-#         mult = analise[i]
-#         for j in range(0, le):
-#             '''
-#                 parece ser dificil realis essa operacao sem a existencia de ponteiros
-#             '''
-#             mult[j] *= 
+def determinant(matrix:list = []) -> list:
+    len_matrix = len(matrix)
+    for i in range(0, len_matrix**2):
+        if i != 0: break
+        seconde=[]
+        for j in range(0, len_matrix):
+            initial_matrix = matrix[j]
+            for k in range(0, len_matrix-1):
+                initial_matrix = initial_matrix[j]
+                print(j,k,initial_matrix)
+            seconde.append(initial_matrix)
 
-    # print(analise)
-    # return 0
+    print(seconde)
+    return ...
 
 if __name__ == "__main__":
     import json
@@ -55,10 +50,10 @@ if __name__ == "__main__":
     numbers = []
 
     if qst == 2:
-        for i in range(0, n**n):
+        for i in range(1, n**n+1):
             numbers.append(is_prime(i))
     else:
-        for i in range(0, n**n):
+        for i in range(1, n**n+1):
             numbers.append(i)
 
 
@@ -66,6 +61,8 @@ if __name__ == "__main__":
     #     numbers = agroup(n, n**(n-k-1), numbers)
 
     with open("matriz_n_por_n\matriz.json", "w") as file:
-        json.dump(numbers, file)
+        json.dump(mult_agroup(n,numbers), file)
 
     print(mult_agroup(n, numbers))
+    print(determinant(mult_agroup(n, numbers)))
+
