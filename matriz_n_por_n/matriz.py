@@ -1,4 +1,10 @@
-def agroup(le:int = 1, n:int = 1, base:list = []) -> list:
+def agroup(le:int = 1, n:int = 1, base:list = [], autocomplet: bool = False) -> list:
+    '''
+        le: number of elements in each list
+        n: number of list with le elements
+        base: list that will be grouped
+        autocomplet: 
+    '''
     final_matriz= []
     
     if n == 0:
