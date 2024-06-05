@@ -1,21 +1,34 @@
+def g_list() -> list:
+    ...
+
+
 def agroup(le:int = 1, n:int = 1, base:list = [], autocomplet: bool = False) -> list:
     '''
         le: number of elements in each list
         n: number of list with le elements
         base: list that will be grouped
-        autocomplet: 
+        autocomplet: complete the matrix with None value
     '''
-    final_matriz= []
+
+    out_matrix = []
     
+    if autocomplet == True and len(base) < (le*n):
+        for i in range(0, len(base)-le*n):
+            base.append(None)
+
     if n == 0:
-        return final_matriz
+        return out_matrix
     
     for k in range(0, n):
-        final_matriz.append(base[k*le:(k+1)*le])
+        out_matrix.append(base[k*le:(k+1)*le])
 
-    return final_matriz
+    return out_matrix
 
 def mult_agroup(dimensions:int = 1, groups:list = []) -> list:
+    '''
+        dimensions: number of times func:agroup will be done
+        groups: input list
+    '''
     n = dimensions
     matrix = groups
     for k in range(0, n-1):
