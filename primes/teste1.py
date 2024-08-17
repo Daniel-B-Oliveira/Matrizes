@@ -1,17 +1,14 @@
 import math
 
-def is_prime(n:int = 1):
+def is_prime(n:int):
+    if n < 2: return False
 
-    if n == 1 or n == 0: return False
-    if n == 2: return True
-
-    for i in range(2, n):
-        if n % i == 0:
-            break
+    for i in range(2,n):
+        if i*i > n: break
+        if(n%i == 0): return False
     
-    if i == (n-1):
-        return True
-    return False
+    return True 
+    
 
 def prime_list(n:int = 1) -> list:
     # n = number of primes
@@ -35,6 +32,14 @@ def sqrt_list(p:list = []) -> list:
 
 if __name__ == "__main__":
 
-    u =  sqrt_list(prime_list(1000))
-    print(u)
+    p =  prime_list(100)
+    print(p)
 
+    #make a point (x,y), where x = sqrt_p and y = p 
+
+    points = []
+
+    for i in range(0,len(p)):
+        point = (math.sqrt(p[i]), p[i])
+        points.append(point)
+        print(point)

@@ -83,5 +83,5 @@ if __name__ == "__main__":
         json.dump(mult_agroup(n,numbers), file)
 
     print(mult_agroup(n, numbers))
-    print(determinant(mult_agroup(n, numbers)))
+    # print(determinant(mult_agroup(n, numbers)))
 
